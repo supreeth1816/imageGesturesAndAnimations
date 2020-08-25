@@ -19,37 +19,25 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    /*
-    private let imageTitle: UILabel = {
-        
-        let imageTitle = UILabel()
-        imageTitle.text = "SOS Poster"
-        
-        return imageTitle
-        
-    }()
-
- */
+    let doubleTapGesture = UITapGestureRecognizer(target: self,
+                                                  action: #selector(didDoubleTap(_:)) )
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
         view.addSubview(imageView)
         imageView.center = view.center
         // Do any additional setup after loading the view.
-        
-        let doubleTapGesture = UITapGestureRecognizer(target: self,
-                                                      action: #selector(didDoubleTap(_:)) )
         
         doubleTapGesture.numberOfTapsRequired = 2
         imageView.addGestureRecognizer(doubleTapGesture)
     }
     
-   @objc private func didDoubleTap(_ gesture: UITapGestureRecognizer){
+    
+   @objc func didDoubleTap(_ gesture: UITapGestureRecognizer){
     print("double tapped")
-        
-    }
+   }
 
 
 
